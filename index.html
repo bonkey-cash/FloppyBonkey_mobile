@@ -10,7 +10,40 @@
 
     
      <style>
-     @font-face {
+     
+@media screen and (orientation: landscape) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: black; /* Optional for better visibility */
+    }
+
+    .canvas-container {
+        display: none; /* Hide the canvas */
+    }
+
+    #landscapeWarning {
+        display: block; /* Show the warning message */
+        color: white;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    #landscapeWarning {
+        display: none; /* Hide the warning message */
+    }
+
+    .canvas-container {
+        display: block; /* Show the canvas */
+    }
+}
+
+	 
+	 @font-face {
 font-family: "Tiny5";
 src: url("https://path-to-your-font-file.ttf") format("truetype"); /* Update this URL to your actual font file */
 font-weight: 400;
@@ -292,6 +325,8 @@ canvas {
 
 
 <body>
+
+	<div id="landscapeWarning">Please rotate your device to portrait mode to play the game.</div>
 
     <div class="canvas-container">
         <canvas id="gameCanvas"></canvas>
@@ -1235,6 +1270,25 @@ document.getElementById('highscoreButton').addEventListener('click', () => {
     document.getElementById('highscoreModal').style.display = 'block';
 });
 
+
+function checkOrientation() {
+    if (window.innerHeight < window.innerWidth) {
+        // Landscape mode
+        document.getElementById('gameCanvas').style.display = 'none';
+        document.getElementById('landscapeWarning').style.display = 'block';
+    } else {
+        // Portrait mode
+        document.getElementById('gameCanvas').style.display = 'block';
+        document.getElementById('landscapeWarning').style.display = 'none';
+    }
+}
+
+// Add the event listener for orientation change
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('orientationchange', checkOrientation);
+
+// Call the function initially
+checkOrientation();
 
 
 
