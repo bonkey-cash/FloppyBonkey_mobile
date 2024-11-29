@@ -438,7 +438,7 @@ canvas {
 		const pipes = [];
         const pipeWidth = 64;
         let pipeGap = 200; 
-        let pipeSpeed = 4.5;
+        let pipeSpeed = 2.25;
         let score = 0;
         let gameRunning = false;
 		let pipeCreationInterval;
@@ -614,7 +614,7 @@ function drawTopPipes() {
         }
 
         function updateSpeed() {
-            pipeSpeed += 0.25;
+            pipeSpeed += 0.125;
         }
 
         const characterImages = {};
@@ -894,7 +894,7 @@ function startGame() {
     turtle.velocity = 0;
 	pipes.length = 0;
     coins.length = 0;
-	pipeSpeed = 4.5;
+	pipeSpeed = 2.25;
 
     // Reset gravity-related parameters
     currentGravity = initialGravity; // Reset to initial gravity
