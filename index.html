@@ -404,7 +404,7 @@ canvas {
 
         let selectedCharacter = localStorage.getItem('selectedCharacter') || 'character1';
         // Game speed scaler
-		const gamespeedmodifier = 1;
+		const gamespeedmodifier = 2.5;
 		// Define initial and maximum gravity
 		const initialGravity = 0.045*gamespeedmodifier; // Starting gravity (low)
 		const maxGravity = 0.09*gamespeedmodifier;     // Maximum gravity (normal gameplay value)
@@ -1010,7 +1010,7 @@ function submitHighscore(username, score) {
         // Then update the player's statistics
         PlayFabClientSDK.UpdatePlayerStatistics({
             Statistics: [{
-                StatisticName: "Highscore",
+                StatisticName: "Highscore_mobile",
                 Value: score
             }]
         }, function (result) {
@@ -1030,7 +1030,7 @@ function fetchHighscores() {
     PlayFabClientSDK.GetLeaderboard({
         StartPosition: 0,
         MaxResultsCount: 10,
-        StatisticName: "Highscore"
+        StatisticName: "Highscore_mobile"
     }, function (result) {
         console.log("Leaderboard data:", result.data.Leaderboard);
         const leaderboardData = result.data.Leaderboard;
