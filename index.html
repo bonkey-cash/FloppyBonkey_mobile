@@ -438,7 +438,7 @@ canvas {
 		const pipes = [];
         const pipeWidth = 64;
         let pipeGap = 200; 
-        let pipeSpeed = 2.25;
+        let pipeSpeed = 1.125;
         let score = 0;
         let gameRunning = false;
 		let pipeCreationInterval;
@@ -894,7 +894,7 @@ function startGame() {
     turtle.velocity = 0;
 	pipes.length = 0;
     coins.length = 0;
-	pipeSpeed = 2.25;
+	pipeSpeed = 1.125;
 
     // Reset gravity-related parameters
     currentGravity = initialGravity; // Reset to initial gravity
@@ -922,9 +922,9 @@ function startGame() {
     // Update score and start the game loop
     updateScore();
     update();
-	pipeCreationInterval = setInterval(createTopPipes, 2500);
-	pipeSpeedIncreaseInterval = setInterval(increasePipeSpeed, 5000);
-    speedUpdateInterval = setInterval(updateSpeed, 5000);
+	pipeCreationInterval = setInterval(createTopPipes, 1250);
+	pipeSpeedIncreaseInterval = setInterval(increasePipeSpeed, 2500);
+    speedUpdateInterval = setInterval(updateSpeed, 2500);
 	});
 	
 	
@@ -951,7 +951,7 @@ function loginToPlayFab(username, callback) {
 
 
 function increasePipeSpeed() {
-    pipeSpeed += 0.2; // Pas de snelheidstoename aan zoals gewenst
+    pipeSpeed += 0.125; // Pas de snelheidstoename aan zoals gewenst
 }
 
 document.querySelectorAll('button').forEach(button => {
@@ -1272,9 +1272,9 @@ function togglePause() {
         gameRunning = true;
         backgroundMusic.play();
         update();
-		pipeCreationInterval = setInterval(createTopPipes, 2000);
-		pipeSpeedIncreaseInterval = setInterval(increasePipeSpeed, 5000);
-        speedUpdateInterval = setInterval(updateSpeed, 5000);
+		pipeCreationInterval = setInterval(createTopPipes, 1250);
+		pipeSpeedIncreaseInterval = setInterval(increasePipeSpeed, 2500);
+        speedUpdateInterval = setInterval(updateSpeed, 2500);
         document.getElementById('pauseButton').textContent = 'Pause';
     } else {
         // Pause the game
