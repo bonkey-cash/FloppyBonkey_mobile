@@ -404,15 +404,15 @@ canvas {
 
         let selectedCharacter = localStorage.getItem('selectedCharacter') || 'character1';
         // Game speed scaler
-		const gamespeedmodifier = 2.5;
+		const gamespeedmodifier = 1;
 		// Define initial and maximum gravity
-		const initialGravity = 0.045*gamespeedmodifier; // Starting gravity (low)
-		const maxGravity = 0.085*gamespeedmodifier;     // Maximum gravity (normal gameplay value)
+		const initialGravity = 0.23; // Starting gravity (low)
+		const maxGravity = 0.43;     // Maximum gravity (normal gameplay value)
 		const gravityIncreaseDuration = 1500; // Time (in ms) to reach max gravity
 
 		// Define initial and adjusted lift
-		const initialLift = -1.75*(gamespeedmodifier*1); // Stronger jump at low gravity
-		const maxLift = -2.5*(gamespeedmodifier*1);     // Normal jump at max gravity
+		const initialLift = -3.5; // Stronger jump at low gravity
+		const maxLift = -5;     // Normal jump at max gravity
 
 		let currentGravity = initialGravity;
 		let currentLift = initialLift;
@@ -438,7 +438,7 @@ canvas {
 		const pipes = [];
         const pipeWidth = 64;
         let pipeGap = 200; 
-        let pipeSpeed = 2*gamespeedmodifier;
+        let pipeSpeed = 1.8;
         let score = 0;
         let gameRunning = false;
 		let pipeCreationInterval;
@@ -894,7 +894,7 @@ function startGame() {
     turtle.velocity = 0;
 	pipes.length = 0;
     coins.length = 0;
-	pipeSpeed = 2*gamespeedmodifier;
+	pipeSpeed = 1.8;
 
     // Reset gravity-related parameters
     currentGravity = initialGravity; // Reset to initial gravity
